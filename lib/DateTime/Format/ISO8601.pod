@@ -1,0 +1,284 @@
+=pod
+
+=head1 NAME
+
+DateTime::Format::ISO8601 - Parses ISO8601 formats
+
+=head1 SYNOPSIS
+
+    use DateTime::Format::ISO8601;
+
+    my $dt = DateTime::Format::ISO8601->parse_datetime( $str );
+
+    or
+
+    my $dt = DateTime::Format::ISO8601->parse_time( $str );
+
+=head1 DESCRIPTION
+
+Parses almost all ISO 8601:2000(E) date and time formats.
+ISO 8601:2000(E) time-intervals will be supported in a later release.
+
+=head1 FORMATS
+
+There are 6 string that can match against date only or time only formats.
+The C<parse_datetime> method will attempt to match these ambiguous strings
+against date only formats.  If you want to match against the time only
+formats see the C<parse_time> method.
+
+=head2 Conventions
+
+=over 4
+
+=item * Expanded ISO8601
+
+These formats are supported with exactly 6 digits for the year.
+Support for a variable number of digits will be in a later release.
+
+=item * Precision
+
+If a format doesn't include full precision all larger time unit values
+are filled in using the current date/time.
+
+=item * Fractional time
+
+There is no limit on the expressed precision.
+
+=back
+
+=head2 Supported via parse_datetime
+
+The supported formats are listed by the section of ISO 8601:2000(E) in
+which they appear.
+
+=head3 5.2 Dates
+
+=head3 5.2.1.1
+
+    YYYYMMDD
+    YYYY-MM-DD
+
+=head3 5.2.1.2
+
+    YYYY-MM
+    YYYY
+    YY
+
+=head3 5.2.1.3
+
+    YYMMDD
+    YY-MM-DD
+    -YYMM
+    -YY-MM
+    -YY
+    --MMDD
+    --MM-DD
+    --MM
+    ---DD
+
+=head3 5.2.1.4
+
+    +[YY]YYYYMMDD
+    +[YY]YYYY-MM-DD
+    +[YY]YYYY-MM
+    +[YY]YYYY
+    +[YY]YY
+
+=head3 5.2.2.1
+
+    YYYYDDD
+    YYYY-DDD
+
+=head3 5.2.2.2
+
+    YYDDD
+    YY-DDD
+    -DDD
+
+=head3 5.2.2.3
+
+    +[YY]YYYYDDD
+    +[YY]YYYY-DDD
+
+=head3 5.3.2.1
+
+    YYYYWwwD
+    YYYY-Www-D
+
+=head3 5.2.3.2
+
+    YYYYWww
+    YYYY-Www
+    YYWwwD
+    YY-Www-D
+    YYWww
+    YY-Www
+    -YWwwD
+    -Y-Www-D
+    -YWww
+    -Y-Www
+    -WwwD
+    -Www-D
+    -Www
+    -W-D
+
+=head3 5.2.3.4
+
+    +[YY]YYYYWwwD
+    +[YY]YYYY-Www-D
+    +[YY]YYYYWww
+    +[YY]YYYY-Www
+
+=head3 5.3 Time of Day
+
+=head3 5.3.1.1 - 5.3.1.3
+
+maybe prefixed with 'T'
+
+=head3 5.3.1.1
+
+    hh:mm:ss
+
+=head3 5.3.1.2
+
+    hh:mm
+
+=head3 5.3.1.3 - 5.3.1.4
+
+fractional (decimal) separator maybe either ',' or '.'
+
+=head3 5.3.1.3
+
+    hhmmss,ss
+    hh:mm:ss,ss
+    hhmm,mm
+    hh:mm,mm
+    hh,hh
+
+=head3 5.3.1.4
+
+    -mm:ss
+    -mmss,s
+    -mm:ss,s
+    -mm,m
+    --ss,s
+
+=head3 5.3.3 - 5.3.4.2
+
+maybe prefixed with 'T'
+
+=head3 5.3.3
+
+    hhmmssZ
+    hh:mm:ssZ
+    hhmmZ
+    hh:mmZ
+    hhZ
+
+=head3 5.3.4.2
+
+    hhmmss[+-]hhmm
+    hh:mm:ss[+-]hh:mm
+    hhmmss[+-]hh
+    hh:mm:ss[+-]hh
+
+=head3 5.4 Combinations of date and time of day
+
+=head3 5.4.1
+
+    YYYYMMDDThhmmss
+    YYYY-MM-DDThh:mm:ss
+    YYYYMMDDThhmmssZ
+    YYYY-MM-DDThh:mm:ssZ
+    YYYYMMDDThhmmss[+-]hhmm
+    YYYY-MM-DDThh:mm:ss[+-]hh:mm
+    YYYYMMDDThhmmss[+-]hh
+    YYYY-MM-DDThh:mm:ss[+-]hh
+
+=head3 5.4.2
+
+Support for this section is not complete.
+
+    YYYYMMDDThhmm
+    YYYY-MM-DDThh:mm
+    YYYYDDDThhmmZ
+    YYYY-DDDThh:mmZ
+    YYYYWwwDThhmm[+-]hhmm
+    YYYY-Www-DThh:mm[+-]hh
+
+=head3 5.5 Time-Intervals
+
+Will be supported in a later release.
+
+=head2 Supported via parse_time
+
+=head3 5.3.1.1 - 5.3.1.3
+
+maybe prefixed with 'T'
+
+=head3 5.3.1.1
+
+    hhmmss
+
+=head3 5.3.1.2
+
+    hhmm
+    hh
+
+=head3 5.3.1.4
+
+    -mmss
+    -mm
+    --ss
+
+=head1 STANDARDS DOCUMENT
+
+=head2 Title
+
+    ISO8601:2000(E) 
+    Data elements and interchange formats - information exchange -
+    Representation of dates and times
+    Second edition 2000-12-15
+
+=head2 Reference Number
+
+    ISO/TC 154 N 362
+
+=head1 CREDITS
+
+Iain "Spoon" Truskett (SPOON) who wrote C<DateTime::Format::Builder>.
+That has grown into I<The Vacuum Energy Powered C<Swiss Army> Katana> 
+of date and time parsing.  This module was inspired by and conceived
+in honor of C<DateTime::Format::Builder>.
+
+Tom Phoenix (PHOENIX) and PDX.pm for helping me solve the ISO week conversion
+bug.  Not by fixing the code but motivation me to fix it so I could
+participate in a game of C<Zendo>.
+
+Everyone at the DateTime C<Asylum>.
+
+=head1 SUPPORT
+ 
+Support for this module is provided via the datetime@perl.org email
+list. See http://lists.perl.org/ for more details.
+
+=head1 AUTHOR
+ 
+Joshua Hoblitt <jhoblitt@cpan.org>
+ 
+=head1 COPYRIGHT
+ 
+Copyright (c) 2003 Joshua Hoblitt.  All rights reserved.  This program
+is free software; you can redistribute it and/or modify it under the
+same terms as Perl itself.
+ 
+The full text of the license can be found in the LICENSE file included
+with this module.
+ 
+=head1 SEE ALSO
+ 
+datetime@perl.org mailing list
+ 
+http://datetime.perl.org/
+ 
+=cut

@@ -1,0 +1,13 @@
+DateTime::Format::ISO8601
+========================
+
+Parses ISO8601 formats.
+
+INSTALLATION
+
+To install this module type the following:
+
+perl Makefile.PL
+make
+make test
+make install
