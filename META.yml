@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: DateTime-Format-ISO8601
-version: 0.04
+version: 0.0401
 license: perl
 distribution_type: module
 requires:
@@ -14,5 +14,5 @@ conflicts: {}
 provides:
   DateTime::Format::ISO8601:
     file: lib/DateTime/Format/ISO8601.pm
-    version: 0.04
-generated_by: Module::Build version 0.19
+    version: 0.0401
+generated_by: Module::Build version 0.21

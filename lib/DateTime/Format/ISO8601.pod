@@ -386,6 +386,8 @@ Tom Phoenix (PHOENIX) and PDX.pm for helping me solve the ISO week conversion
 bug.  Not by fixing the code but motivation me to fix it so I could
 participate in a game of C<Zendo>.
 
+Jonathan Leffler (JOHNL) for reporting a test bug.
+
 Everyone at the DateTime C<Asylum>.
 
 =head1 SUPPORT

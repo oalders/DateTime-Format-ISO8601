@@ -153,7 +153,7 @@ use DateTime::Format::ISO8601;
     #-DDD -102
     my $dt = DateTime::Format::ISO8601->parse_datetime( '-102' );
     my $year = sprintf( "%04i", DateTime->now->year );
-    is( $dt->ymd, "${year}-04-12" );
+    is( $dt->strftime( "%j" ), 102 );
 }
 
 {
