@@ -305,6 +305,8 @@ optionally prefixed with 'T'
     hhmmZ
     hh:mmZ
     hhZ
+    hhmmss.ssZ
+    hh:mm:ss.ssZ
 
 =head3 5.3.4.2
 
@@ -312,6 +314,8 @@ optionally prefixed with 'T'
     hh:mm:ss[+-]hh:mm
     hhmmss[+-]hh
     hh:mm:ss[+-]hh
+    hhmmss.ss[+-]hhmm
+    hh:mm:ss.ss[+-]hh:mm
 
 =head3 5.4 Combinations of date and time of day
 
@@ -327,6 +331,11 @@ optionally prefixed with 'T'
     YYYY-MM-DDThh:mm:ss[+-]hh
 
 =head3 5.4.2
+
+   YYYYMMDDThhmmss.ss
+   YYYY-MM-DDThh:mm:ss.ss
+   YYYYMMDDThhmmss.ss[+-]hhmm
+   YYYY-MM-DDThh:mm:ss.ss[+-]hh:mm
 
 Support for this section is not complete.
 
@@ -387,6 +396,8 @@ bug.  Not by fixing the code but motivation me to fix it so I could
 participate in a game of C<Zendo>.
 
 Jonathan Leffler (JOHNL) for reporting a test bug.
+
+Kelly McCauley for a patch to add 8 missing formats.
 
 Everyone at the DateTime C<Asylum>.
 
