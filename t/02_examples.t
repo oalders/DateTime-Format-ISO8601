@@ -1,4 +1,13 @@
+#!/usr/bin/perl
+
+# Copyright (C) 2003-2005  Joshua Hoblitt
+#
+# $Id: 02_examples.t,v 1.8.4.3 2005/08/07 22:58:39 jhoblitt Exp $
+
 use strict;
+use warnings;
+
+use lib qw( ./lib );
 
 use Test::More tests => 175;
 
