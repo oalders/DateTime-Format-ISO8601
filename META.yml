@@ -1,9 +1,12 @@
 ---
 name: DateTime-Format-ISO8601
-version: 0.0403
-author: ~
-abstract: ~
+version: 0.05
+author:
+  - 'Joshua Hoblitt <jhoblitt@cpan.org>'
+abstract: Parses ISO8601 formats
 license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
   DateTime: 0.18
   DateTime::Format::Builder: 0.77
@@ -13,5 +16,8 @@ recommends:
 provides:
   DateTime::Format::ISO8601:
     file: lib/DateTime/Format/ISO8601.pm
-    version: 0.0403
-generated_by: Module::Build version 0.2608
+    version: 0.05
+generated_by: Module::Build version 0.2805
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2

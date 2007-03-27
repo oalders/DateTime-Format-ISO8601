@@ -22,15 +22,13 @@ DateTime::Format::ISO8601 - Parses ISO8601 formats
 Parses almost all ISO8601 date and time formats.
 ISO8601 time-intervals will be supported in a later release.
 
-=head1 USAGE
-
-=head2 Import Parameters
+=head1 IMPORT PARAMETERS
 
 This module accepts no arguments to it's C<import> method.
 
-=head2 Methods
+=head1 METHODS
 
-=head3 Constructors
+=head2 Constructors
 
 =over 4
 
@@ -79,7 +77,7 @@ Returns a replica of the given object.
 
 =back
 
-=head3 Object Methods
+=head2 Object Methods
 
 =over 4
 
@@ -117,7 +115,7 @@ C<cut_off_year> should be used to place the year in either 20xx or 19xx.
 
 =back
 
-=head3 Class Methods
+=head2 Class Methods
 
 =over 4
 
@@ -137,7 +135,7 @@ default value for C<legacy_year>.
 
 =back
 
-=head3 Parser(s)
+=head2 Parser(s)
 
 These may be called as either class or object methods.
 
@@ -307,8 +305,6 @@ optionally prefixed with 'T'
     hhmmZ
     hh:mmZ
     hhZ
-    hhmmss.ssZ
-    hh:mm:ss.ssZ
 
 =head3 5.3.4.2
 
@@ -316,8 +312,6 @@ optionally prefixed with 'T'
     hh:mm:ss[+-]hh:mm
     hhmmss[+-]hh
     hh:mm:ss[+-]hh
-    hhmmss.ss[+-]hhmm
-    hh:mm:ss.ss[+-]hh:mm
 
 =head3 5.4 Combinations of date and time of day
 
@@ -333,11 +327,6 @@ optionally prefixed with 'T'
     YYYY-MM-DDThh:mm:ss[+-]hh
 
 =head3 5.4.2
-
-   YYYYMMDDThhmmss.ss
-   YYYY-MM-DDThh:mm:ss.ss
-   YYYYMMDDThhmmss.ss[+-]hhmm
-   YYYY-MM-DDThh:mm:ss.ss[+-]hh:mm
 
 Support for this section is not complete.
 
@@ -397,18 +386,12 @@ Tom Phoenix (PHOENIX) and PDX.pm for helping me solve the ISO week conversion
 bug.  Not by fixing the code but motivation me to fix it so I could
 participate in a game of C<Zendo>.
 
-Jonathan Leffler (JOHNL) for reporting a test bug.
-
-Kelly McCauley for a patch to add 8 missing formats.
-
-Alasdair Allan (AALLAN) for complaining about excessive test execution time.
-
 Everyone at the DateTime C<Asylum>.
 
 =head1 SUPPORT
  
-Support for this module is provided via the <datetime@perl.org> email list.
-See L<http://lists.perl.org/> for more details.
+Support for this module is provided via the datetime@perl.org email
+list. See http://lists.perl.org/ for more details.
 
 =head1 AUTHOR
  
@@ -416,16 +399,17 @@ Joshua Hoblitt <jhoblitt@cpan.org>
  
 =head1 COPYRIGHT
  
-Copyright (c) 2003-2005  Joshua Hoblitt. All rights reserved. This program is
-free software; you can redistribute it and/or modify it under the same terms as
-Perl itself.
-
-The full text of the licenses can be found in the I<LICENSE> file included with
-this module, or in L<perlartistic> and L<perlgpl> as supplied with Perl 5.8.1
-and later.
+Copyright (c) 2003 Joshua Hoblitt.  All rights reserved.  This program
+is free software; you can redistribute it and/or modify it under the
+same terms as Perl itself.
+ 
+The full text of the license can be found in the LICENSE file included
+with this module.
  
 =head1 SEE ALSO
-
-L<DateTime>, L<DateTime::Format::Builder>, L<http://datetime.perl.org/>
+ 
+datetime@perl.org mailing list
+ 
+http://datetime.perl.org/
  
 =cut
