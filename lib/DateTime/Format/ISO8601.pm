@@ -112,7 +112,7 @@ sub set_base_datetime {
             },
         }
     );
-       
+
     # ISO8601 only allows years 0 to 9999
     # this implimentation ignores the needs of expanded formats
     my $dt = DateTime->from_object( object => $args{ object } );
@@ -182,7 +182,7 @@ DateTime::Format::Builder->create_class(
                 params => [ qw( year month day ) ],
             },
             {
-                # uncombined with above because 
+                # uncombined with above because
                 #regex => qr/^ (\d{4}) -??  (\d\d) -?? (\d\d) $/x,
                 # was matching 152746-05
 
@@ -805,20 +805,18 @@ DateTime::Format::Builder->create_class(
 
 sub _fix_1_digit_year {
     my %p = @_;
-     
+
     no strict 'refs';
-    my $year = ( $p{ self }{ base_datetime } || DateTime->now )->year;
+    my $year = ( $p{ self }{ base_datetime } || DateTime->now )->strftime('%C') * 100;
+
     use strict;
-
-    $year =~ s/.$//;
-    $p{ parsed }{ year } =  $year . $p{ parsed }{ year };
-
+    $p{ parsed }{ year } =  $year + $p{ parsed }{ year };
     return 1;
 }
 
 sub _fix_2_digit_year {
     my %p = @_;
-     
+
     # this is a mess because of the need to support parse_* being called
     # as a class method
     no strict 'refs';
@@ -904,7 +902,7 @@ sub _add_year {
 sub _fractional_second {
     my %p = @_;
 
-    $p{ parsed }{ nanosecond } = ".$p{ parsed }{ nanosecond }" * 10**9; 
+    $p{ parsed }{ nanosecond } = ".$p{ parsed }{ nanosecond }" * 10**9;
 
     return 1;
 }
@@ -912,7 +910,7 @@ sub _fractional_second {
 sub _fractional_minute {
     my %p = @_;
 
-    $p{ parsed }{ second } = ".$p{ parsed }{ second }" * 60; 
+    $p{ parsed }{ second } = ".$p{ parsed }{ second }" * 60;
 
     return 1;
 }
@@ -920,7 +918,7 @@ sub _fractional_minute {
 sub _fractional_hour {
     my %p = @_;
 
-    $p{ parsed }{ minute } = ".$p{ parsed }{ minute }" * 60; 
+    $p{ parsed }{ minute } = ".$p{ parsed }{ minute }" * 60;
 
     return 1;
 }
@@ -953,7 +951,7 @@ sub _normalize_week {
     my $dt = DateTime->new(
                 year => $p{ parsed }{ year },
              );
-                                                                                
+
     if ( $dt->week_number == 1 ) {
         $p{ parsed }{ week } -= 1;
     }

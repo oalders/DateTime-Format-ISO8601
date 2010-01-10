@@ -228,7 +228,7 @@ use DateTime::Format::ISO8601;
 {
     #-YWwwD -5W155
     my $dt = DateTime::Format::ISO8601->parse_datetime( '-5W155' );
-    is( $dt->year, '2005' );
+    is( $dt->year, '2005', '-5W155' );
     is( $dt->week_number, '15' );
     is( $dt->day_of_week, '5' );
 }
@@ -236,7 +236,7 @@ use DateTime::Format::ISO8601;
 {
     #-Y-Www-D -5-W15-5
     my $dt = DateTime::Format::ISO8601->parse_datetime( '-5-W15-5' );
-    is( $dt->year, '2005' );
+    is( $dt->year, '2005', '-5-W15-5' );
     is( $dt->week_number, '15' );
     is( $dt->day_of_week, '5' );
 }
@@ -244,14 +244,14 @@ use DateTime::Format::ISO8601;
 {
     #-YWww -5W15
     my $dt = DateTime::Format::ISO8601->parse_datetime( '-5W15' );
-    is( $dt->year, '2005' );
+    is( $dt->year, '2005', '-5W15' );
     is( $dt->week_number, '15' );
 }
 
 {
     #-Y-Www -5-W15
     my $dt = DateTime::Format::ISO8601->parse_datetime( '-5-W15' );
-    is( $dt->year, '2005' );
+    is( $dt->year, '2005', '-5W15' );
     is( $dt->week_number, '15' );
 }
 
